@@ -8,6 +8,7 @@ import { signIn } from './constants/AuthAPI';
 import { AuthContext } from './context/AuthContext';
 import CameraScreen from './views/CameraScreen';
 import LoginScreen from './views/LoginScreen';
+import WelcomeScreen from './views/WelcomeScreen';
 
 const Stack = createStackNavigator();
 const AppTab = createBottomTabNavigator();
@@ -28,6 +29,7 @@ function App() {
 function Auth() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false}}>
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
             <Stack.Screen name="Login" component={LoginScreen}/>
         </Stack.Navigator>
     );
