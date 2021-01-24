@@ -72,6 +72,7 @@ export default function Routing(){
 
   const authContext = useMemo(() => ({
     login: async (email: string, password: string) => {
+      console.log('inside async logic', password);
         const loginResponse = await signIn({email, password});
         if (loginResponse) {
             const { jwtToken, payload } = loginResponse;
@@ -120,7 +121,9 @@ export default function Routing(){
                 <MainStack.Navigator screenOptions={{ headerShown: false}}>
                     <MainStack.Screen name="App" component={App} />
                 </MainStack.Navigator> :
-                <Auth /> 
+                <MainStack.Navigator screenOptions={{ headerShown: false}}>
+                    <MainStack.Screen name="Auth" component={Auth} />
+                </MainStack.Navigator>
                 }
             </AuthContext.Provider>
         </NavigationContainer>

@@ -2,6 +2,7 @@ import { Credentials, ResetPassword } from '../models/Auth.model';
 import { api, POST } from './API';
 
 export async function signIn(credentials: Credentials): Promise<any> {
+    console.log(credentials);
     return await api(`/auth/login`, POST, credentials);
 }
 
