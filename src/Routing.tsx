@@ -40,6 +40,7 @@ export default function Routing(){
         email: null,
         userToken: null,
         isSignout: false,
+        refreshToken: null,
     }
     const [state, dispatch] = useReducer(
         (prevState: any, action: any) => {
@@ -73,7 +74,6 @@ export default function Routing(){
         if (loginResponse) {
             const { jwtToken, payload } = loginResponse;
             const decoded = jwt_decode(jwtToken);
-            console.log(decoded);
             const { email } = payload;
             await AsyncStorage.setItem('userToken', jwtToken);
             dispatch({ type: 'SIGN_IN', id: email, token: jwtToken, userId: email });
@@ -112,10 +112,10 @@ export default function Routing(){
 
     return (
         
-        <NavigationContainer> 
+        <NavigationContainer>  
             <AuthContext.Provider value={authContext}>
                 { state.userToken ? 
-                <MainStack.Navigator>
+                <MainStack.Navigator screenOptions={{ headerShown: false}}>
                     <MainStack.Screen name="App" component={App} />
                 </MainStack.Navigator> :
                 <Auth /> 
