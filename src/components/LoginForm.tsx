@@ -26,39 +26,39 @@ export default function LoginForm() {
 
     return(
         <View style={styles.form}>
-        <View style={styles.inputContainer}>
-            <TextInput
-                placeholder='Email'
-                placeholderTextColor="#BEBEBE"
-                clearButtonMode="always"
-                autoCapitalize="none"
-                keyboardType='email-address'
-                style={styles.input}
-                onChangeText={text => {
-                    setValue('email', text);
-                }}
-            />
+            <View style={styles.inputContainer}>
+                <TextInput
+                    placeholder='Email'
+                    placeholderTextColor="#BEBEBE"
+                    clearButtonMode="always"
+                    autoCapitalize="none"
+                    keyboardType='email-address'
+                    style={styles.input}
+                    onChangeText={text => {
+                        setValue('email', text);
+                    }}
+                />
+            </View>
+            <View style={styles.divider} />
+            <View style={styles.inputContainer}>
+                <TextInput
+                    placeholder='Password'
+                    placeholderTextColor="#BEBEBE"
+                    clearButtonMode="always"
+                    autoCapitalize="none"
+                    style={styles.input}
+                    secureTextEntry={true}
+                    onChangeText={text => {
+                        setValue('password', text);
+                    }}
+                />
+            </View>
+            <TouchableOpacity
+                style={styles.loginButton}
+                onPress={handleSubmit(onSubmit)}>
+                <Text style={styles.loginText}>Log In</Text>
+            </TouchableOpacity>
         </View>
-        <View style={styles.divider} />
-        <View style={styles.inputContainer}>
-            <TextInput
-                placeholder='Password'
-                placeholderTextColor="#BEBEBE"
-                clearButtonMode="always"
-                autoCapitalize="none"
-                style={styles.input}
-                secureTextEntry={true}
-                onChangeText={text => {
-                    setValue('password', text);
-                }}
-            />
-        </View>
-        <TouchableOpacity
-            style={styles.loginButton}
-            onPress={handleSubmit(onSubmit)}>
-            <Text style={styles.loginText}>Log In</Text>
-        </TouchableOpacity>
-    </View>
     );
 }
 
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     loginButton: {
-        backgroundColor: '#0669DD',
+        backgroundColor: '#A73C31',
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 10,

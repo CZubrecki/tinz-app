@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
+const SmallIcon = require('../assets/smallIcon.png');
 
 interface SignUpScreenProps {
     closeModal: () => void,
@@ -31,6 +32,9 @@ export default function SignUpScreen({ closeModal }: SignUpScreenProps) {
 
     return(
         <View style={styles.container}>
+            <View style={styles.header}>
+                <Image source={SmallIcon} />
+            </View>
             <View style={styles.form}>
                 <TextInput
                     placeholder='Email'
@@ -82,6 +86,13 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
+    header: {
+        backgroundColor: '#DBCBB0',
+        width: '100%',
+        height: '25%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     form: {
         marginVertical: '7%',
         width: '90%',
@@ -104,7 +115,7 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     signUpButton: {
-        backgroundColor: '#0669DD',
+        backgroundColor: '#A73C31',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',

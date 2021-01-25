@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     createAccount: {
-        backgroundColor: '#0669DD',
+        backgroundColor: '#A73C31',
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 5,
