@@ -14,8 +14,6 @@ export default function LoginForm() {
             Alert.alert('Password or email is missing');
             return;
         }
-        console.log(data.email);
-        console.log(data.password);
         await login(data.email, data.password);
     }
     

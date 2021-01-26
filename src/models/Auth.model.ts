@@ -5,4 +5,6 @@ export interface Credentials {
 
 export interface ResetPassword {
     email: string;
+    newPassword?: string;
+    verificationCode?: string;
 }

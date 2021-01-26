@@ -72,14 +72,18 @@ export default function Routing(){
 
   const authContext = useMemo(() => ({
     login: async (email: string, password: string) => {
+      try{
         const loginResponse = await signIn({email, password});
         if (loginResponse) {
-            const { jwtToken, payload } = loginResponse;
-            const decoded = jwt_decode(jwtToken);
-            const { email } = payload;
-            await AsyncStorage.setItem('userToken', jwtToken);
-            dispatch({ type: 'SIGN_IN', id: email, token: jwtToken, userId: email });
-        }
+          const { jwtToken, payload } = loginResponse;
+          const decoded = jwt_decode(jwtToken);
+          const { email } = payload;
+          await AsyncStorage.setItem('userToken', jwtToken);
+          dispatch({ type: 'SIGN_IN', id: email, token: jwtToken, userId: email });
+      }
+      } catch (err) {
+
+      }
     },
     logout: async () => {
       try {
@@ -90,7 +94,11 @@ export default function Routing(){
       dispatch({ type: 'LOGOUT' });
     },
     signUp: async (email: string, password: string) => {
+      try {
         await signUp({email, password});
+      } catch (err) {
+
+      }
     },
   }), []);
 
