@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     },
     title: {
         paddingTop: 20,
-        fontSize: 32,
-        fontWeight: '900',
+        fontSize: 50,
         color: '#FFFFFF',
+        fontFamily: "DancingScript-Regular",
     }
 })

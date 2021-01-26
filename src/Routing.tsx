@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import jwt_decode from 'jwt-decode';
 import React, { useEffect, useMemo, useReducer } from 'react';
-import { signIn } from './constants/AuthAPI';
+import { signIn, signUp } from './constants/AuthAPI';
 import { AuthContext } from './context/AuthContext';
 import CameraScreen from './views/CameraScreen';
 import LoginScreen from './views/LoginScreen';
@@ -72,7 +72,6 @@ export default function Routing(){
 
   const authContext = useMemo(() => ({
     login: async (email: string, password: string) => {
-      console.log('inside async logic', password);
         const loginResponse = await signIn({email, password});
         if (loginResponse) {
             const { jwtToken, payload } = loginResponse;
@@ -91,11 +90,7 @@ export default function Routing(){
       dispatch({ type: 'LOGOUT' });
     },
     signUp: async (email: string, password: string) => {
-      try {
-        // const value = await authSignUp(email, password);
-        // dispatch({ type: 'SIGNUP', id: value.user.email, token: value.user.token, userId: value.user.id });
-      } catch (error) {
-      }
+        await signUp({email, password});
     },
   }), []);
 

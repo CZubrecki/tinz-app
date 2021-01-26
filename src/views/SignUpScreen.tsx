@@ -18,11 +18,16 @@ export default function SignUpScreen({ closeModal }: SignUpScreenProps) {
         }
 
         if (data.password.length < 8) {
-            Alert.alert('Password must be 8 or more characters long');
+            Alert.alert('Password must be 8 or more characters long and include a special characher');
             return;
         }
         
         signUp(data.email, data.password);
+        Alert.alert("", "A verification email has been sent to your email.",
+        [
+          { text: "OK", onPress: closeModal }
+        ],
+        { cancelable: false });
     }
 
     useEffect(() => {
