@@ -4,7 +4,7 @@ import { Button, Dimensions, Image, StyleSheet, View } from 'react-native';
 import { TakePictureResponse } from 'react-native-camera';
 import Camera from '../components/Camera';
 
-const {height, width} = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 export default function CameraScreen() {
     const [image, setImage] = useState<TakePictureResponse | null>();
