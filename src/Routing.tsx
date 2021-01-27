@@ -19,7 +19,7 @@ function App() {
         <AppTab.Navigator>
             {/* <AppTab.Screen name="Home" component={HomeScreen} /> */}
             {/* <AppTab.Screen name="Search" component={SearchScreen} /> */}
-            <AppTab.Screen name="Camera" component={CameraScreen} />
+            <AppTab.Screen name="Camera" component={CameraScreen} options={{tabBarVisible: false }} />
             {/* <AppTab.Screen name="Home" component={Home} /> */}
             {/* <AppTab.Screen name="Profile" component={ProfileScreen} /> */}
         </AppTab.Navigator>
