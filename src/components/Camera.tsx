@@ -1,29 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { RNCamera } from 'react-native-camera';
-import { processImage } from '../constants/ImagesAPI';
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { RNCamera, TakePictureResponse } from 'react-native-camera';
 import { Theme } from '../theme';
 
 const PendingView = () => (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: 'lightgreen',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>Waiting</Text>
+    <View style={{flex: 1}}>
+      <ActivityIndicator />
     </View>
   );
+
+interface CameraProps {
+  takePhoto: (image: TakePictureResponse) => void;
+}
   
 
-export default function Camera(){
+export default function Camera({ takePhoto }: CameraProps){
 
     const takePicture = async (camera: RNCamera) => {
         const options = { quality: 0.5, base64: true };
         const image = await camera.takePictureAsync(options);
-        await processImage(image);
+        takePhoto(image);
+        // await processImage(image);
       };
 
     return(
@@ -39,7 +36,7 @@ export default function Camera(){
                     buttonPositive: 'Ok',
                     buttonNegative: 'Cancel',
                 }}>
-                {({ camera, status, recordAudioPermissionStatus }) => {
+                {({ camera, status }) => {
                 if (status !== 'READY') return <PendingView />;
                 return (
                 <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
