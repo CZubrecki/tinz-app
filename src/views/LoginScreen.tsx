@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Alert, Dimensions, KeyboardAvoidingView, Modal, StyleSheet, Text, View } from 'react-native';
-import ForgotPassword from '../components/ForgotPassword';
 import LoginForm from '../components/LoginForm';
 import Register from '../components/Register';
 import { Theme } from '../theme';
+import ResetPasswordScreen from './ResetPasswordScreen';
 import SignUpScreen from './SignUpScreen';
 
 const { width } = Dimensions.get('window');
@@ -25,7 +25,8 @@ export default function LoginScreen(props: any) {
                     <Text style={styles.title}>Tinz</Text>
                 </View>
                 <LoginForm />
-                <ForgotPassword />
+                {/* <ForgotPassword /> */}
+                <ResetPasswordScreen />
                 <Register openModal={openModal}/>
             </KeyboardAvoidingView>
         </>

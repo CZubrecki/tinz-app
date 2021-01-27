@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     divider: {
         borderWidth: .5,
-        borderColor: Theme.lightGrey,,
+        borderColor: Theme.lightGrey,
         height: 1,
     },
     inputContainer: {
