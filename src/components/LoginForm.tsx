@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Alert, Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
+import { Theme } from '../theme';
 
 const {width} = Dimensions.get("window");
 
@@ -27,7 +28,7 @@ export default function LoginForm() {
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder='Email'
-                    placeholderTextColor="#BEBEBE"
+                    placeholderTextColor={Theme.placeHolderTextColor}
                     clearButtonMode="always"
                     autoCapitalize="none"
                     keyboardType='email-address'
@@ -41,7 +42,7 @@ export default function LoginForm() {
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder='Password'
-                    placeholderTextColor="#BEBEBE"
+                    placeholderTextColor={Theme.placeHolderTextColor}
                     clearButtonMode="always"
                     autoCapitalize="none"
                     style={styles.input}
@@ -59,11 +60,10 @@ export default function LoginForm() {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     form: {
         borderRadius: 3,
-        borderColor: '#BEBEBE',
+        borderColor: Theme.lightGrey,
         width: (width * .90),
         marginHorizontal: 20,
         height: 75,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     divider: {
         borderWidth: .5,
-        borderColor: '#BEBEBE',
+        borderColor: Theme.lightGrey,,
         height: 1,
     },
     inputContainer: {
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     loginButton: {
-        backgroundColor: '#A73C31',
+        backgroundColor: Theme.primary,
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 10,
@@ -94,6 +94,6 @@ const styles = StyleSheet.create({
     loginText: {
         fontWeight: '600',
         fontSize: 16,
-        color: '#FFF'
+        color: Theme.white,
     },
 });

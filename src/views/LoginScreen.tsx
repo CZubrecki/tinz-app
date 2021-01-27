@@ -3,6 +3,7 @@ import { Alert, Dimensions, KeyboardAvoidingView, Modal, StyleSheet, Text, View 
 import ForgotPassword from '../components/ForgotPassword';
 import LoginForm from '../components/LoginForm';
 import Register from '../components/Register';
+import { Theme } from '../theme';
 import SignUpScreen from './SignUpScreen';
 
 const { width } = Dimensions.get('window');
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     header: {
-        backgroundColor: '#A73C31',
+        backgroundColor: Theme.primary,
         width,
         height: 180,
         justifyContent: 'center',
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     title: {
         paddingTop: 20,
         fontSize: 50,
-        color: '#FFFFFF',
+        color: Theme.white,
         fontFamily: "DancingScript-Regular",
     }
 })

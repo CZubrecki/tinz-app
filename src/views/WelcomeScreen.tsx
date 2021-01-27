@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ImageLoader from '../components/ImageLoader';
+import { Theme } from '../theme';
 
 export default function WelcomeScreen({ navigation }: any) {
     const [timePassed, setTimePassed] = useState<boolean>(false);
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#DBCBB0',
+        backgroundColor: Theme.secondary,
     },
     title: {
         fontSize: 32,

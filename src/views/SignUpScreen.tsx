@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
+import { Theme } from '../theme';
 const SmallIcon = require('../assets/smallIcon.png');
 
 interface SignUpScreenProps {
@@ -43,7 +44,7 @@ export default function SignUpScreen({ closeModal }: SignUpScreenProps) {
             <View style={styles.form}>
                 <TextInput
                     placeholder='Email'
-                    placeholderTextColor="#BEBEBE"
+                    placeholderTextColor={Theme.placeHolderTextColor}
                     clearButtonMode="always"
                     autoCapitalize="none"
                     style={styles.input}
@@ -54,7 +55,7 @@ export default function SignUpScreen({ closeModal }: SignUpScreenProps) {
                 <View style={styles.divider} />
                 <TextInput
                     placeholder='Password'
-                    placeholderTextColor="#BEBEBE"
+                    placeholderTextColor={Theme.placeHolderTextColor}
                     clearButtonMode="always"
                     autoCapitalize="none"
                     style={styles.input}
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     header: {
-        backgroundColor: '#DBCBB0',
+        backgroundColor: Theme.secondary,
         width: '100%',
         height: '25%',
         alignItems: 'center',
@@ -102,13 +103,13 @@ const styles = StyleSheet.create({
         marginVertical: '7%',
         width: '90%',
         borderWidth: 1,
-        borderColor: '#BEBEBE',
+        borderColor: Theme.lightGrey,
         borderRadius: 3,
         height: 75,
     },
     divider: {
         borderWidth: .5,
-        borderColor: '#BEBEBE',
+        borderColor: Theme.lightGrey,
         height: 1,
     },
     input: {
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     signUpButton: {
-        backgroundColor: '#A73C31',
+        backgroundColor: Theme.primary,
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     signUpText: {
         fontWeight: '600',
         fontSize: 16,
-        color: '#FFF',
+        color: Theme.white,
     },
     existingAccountContainer: {
         justifyContent: 'center',

@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import React, { useState } from 'react';
 import { Alert, Dimensions, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { resetPassword } from '../constants/AuthAPI';
+import { Theme } from '../theme';
 
 const {width} = Dimensions.get("window");
 
@@ -39,7 +40,7 @@ export default function ForgotPassword() {
                                 <View style={styles.inputContainer}>
                                     <TextInput
                                         placeholder='New Password'
-                                        placeholderTextColor="#BEBEBE"
+                                        placeholderTextColor={Theme.placeHolderTextColor}
                                         clearButtonMode="always"
                                         autoCapitalize="none"
                                         style={styles.input}
@@ -57,7 +58,7 @@ export default function ForgotPassword() {
                                 <View style={styles.inputContainer}>
                                     <TextInput
                                         placeholder='Verification Code'
-                                        placeholderTextColor="#BEBEBE"
+                                        placeholderTextColor={Theme.placeHolderTextColor}
                                         clearButtonMode="always"
                                         autoCapitalize="none"
                                         keyboardType='numeric'
@@ -75,7 +76,7 @@ export default function ForgotPassword() {
                                 <View style={styles.inputContainer}>
                                     <TextInput
                                         placeholder='Email'
-                                        placeholderTextColor="#BEBEBE"
+                                        placeholderTextColor={Theme.placeHolderTextColor}
                                         clearButtonMode="always"
                                         autoCapitalize="none"
                                         keyboardType='email-address'
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
     form: {
         justifyContent: 'center',
         borderRadius: 3,
-        borderColor: '#BEBEBE',
+        borderColor: Theme.lightGrey,
         width: (width * .90),
         marginHorizontal: 20,
         height: 50,
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     continueButton: {
-        backgroundColor: '#A73C31',
+        backgroundColor: Theme.primary,
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 10,
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
     continueText: {
         fontWeight: '600',
         fontSize: 16,
-        color: '#FFF'
+        color: Theme.white,
     },
     cancel: {
         justifyContent: 'center',

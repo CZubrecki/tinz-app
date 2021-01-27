@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { processImage } from '../constants/ImagesAPI';
+import { Theme } from '../theme';
 
 const PendingView = () => (
     <View
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     },
     capture: {
       flex: 0,
-      backgroundColor: '#fff',
+      backgroundColor: Theme.white,
       borderRadius: 5,
       padding: 15,
       paddingHorizontal: 20,

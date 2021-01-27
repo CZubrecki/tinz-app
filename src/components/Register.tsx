@@ -1,5 +1,6 @@
 import React from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Theme } from "../theme";
 
 const { width } = Dimensions.get('window');
 
@@ -12,7 +13,7 @@ export default function Register({openModal}: RegisterProps) {
         <View style={[styles.createNewAccountContainer, styles.bottom]}>
             <View style={styles.orContainer}>
                 <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ color: '#BEBEBE' }}>────────</Text><Text> OR </Text><Text style={{ color: '#BEBEBE' }}>────────</Text>
+                    <Text style={{ color: Theme.lightGrey }}>────────</Text><Text> OR </Text><Text style={{ color: Theme.lightGrey }}>────────</Text>
                 </View>
             </View>
             <TouchableOpacity
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     createAccount: {
-        backgroundColor: '#A73C31',
+        backgroundColor: Theme.primary,
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 5,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
     },
     createAccountText: {
-        color: '#FFFFFF',
+        color: Theme.white,
         fontWeight: '600',
         fontSize: 16,
     },
