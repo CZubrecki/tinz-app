@@ -1,7 +1,9 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { RNCamera, TakePictureResponse } from 'react-native-camera';
 import { Theme } from '../theme';
+import BottomBar from './Camera/BottomBar';
+import CameraOutlineOverlay from './Camera/CameraOutlineOverlay';
 
 const PendingView = () => (
     <View style={{flex: 1}}>
@@ -39,11 +41,10 @@ export default function Camera({ takePhoto }: CameraProps){
                 {({ camera, status }) => {
                 if (status !== 'READY') return <PendingView />;
                 return (
-                <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-                    <TouchableOpacity onPress={() => takePicture(camera)} style={styles.capture}>
-                    <Text style={{ fontSize: 14 }}> SNAP </Text>
-                    </TouchableOpacity>
-                </View>
+                  <>
+                    <CameraOutlineOverlay />
+                    <BottomBar camera={camera} takePicture={takePicture} />
+                  </>
                 );
             }}
             </RNCamera>

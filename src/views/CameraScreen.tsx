@@ -1,8 +1,9 @@
 import * as _ from 'lodash';
 import React, { useState } from 'react';
-import { Button, Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { TakePictureResponse } from 'react-native-camera';
 import Camera from '../components/Camera';
+import BottomBar from '../components/Camera/BottomBar';
 
 const { height, width } = Dimensions.get('window');
 
@@ -14,10 +15,12 @@ export default function CameraScreen() {
 
     if(!_.isNil(image)) {
         return (
-            <View style={styles.container}>
-                <Image source={{uri: image.uri}} style={{width: (width * .90), height: (height * .50)}}/>
-                <Button title="Cancel" onPress={() => setImage(null)} />
-            </View>
+            <>
+                <View style={styles.container}>
+                    <Image source={{uri: image.uri}} style={{width: (width * .90), height: (height * .50)}}/>
+                </View>
+                <BottomBar cancel={() => setImage(null)} usePhoto={() => console.log('useMe')} />
+            </>
         );
     }
 
