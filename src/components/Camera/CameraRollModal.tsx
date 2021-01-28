@@ -1,28 +1,56 @@
 import { PhotoIdentifier } from "@react-native-community/cameraroll";
 import React from 'react';
-import { Image, ScrollView, View } from 'react-native';
+import { Button, Dimensions, Image, ScrollView, StyleSheet, View } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 interface CameraRollModalProps {
     photos: PhotoIdentifier[],
+    closeModal: () => void,
 }
 
-export default function CameraRollModal({ photos }: CameraRollModalProps) {
+export default function CameraRollModal({ photos, closeModal }: CameraRollModalProps) {
     return(
-        <View>
-            <ScrollView>
-            {photos.map((p, i) => {
-            return (
-                <Image
-                key={i}
-                style={{
-                    width: 300,
-                    height: 100,
-                }}
-                source={{ uri: p.node.image.uri }}
-                />
-            );
-            })}
-            </ScrollView>
-        </View>
+            <>
+                <View style={styles.header}>
+                    <Button title="Cancel" onPress={closeModal}/>
+                </View>
+                <ScrollView contentContainerStyle={styles.container}>
+                {photos.map((p, i) => {
+                return (
+                    <View style={styles.imageContainer} key={i}>
+                        <Image
+                        style={styles.imagePreview}
+                        source={{ uri: p.node.image.uri }}
+                        />
+                    </View>
+                );
+                })}
+                </ScrollView>
+            </>
     );
 }
+
+const styles = StyleSheet.create({
+    header: {
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        marginHorizontal: 10,
+    },
+    cancelButton: {
+    },
+    container: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    imageContainer: {
+        width: (width/3),
+        height: 100,
+    },
+    imagePreview: {
+        margin: 1,
+        width: '99%',
+        height: '99%',
+    } 
+});

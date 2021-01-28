@@ -39,7 +39,7 @@ export default function BottomBar({navigation, takePicture, camera, cancel, useP
             <Modal animationType="slide" collapsable={true} presentationStyle='formSheet' visible={modalVisible} onRequestClose={() => {
                 Alert.alert("Modal has been closed.");
             }}>
-                <CameraRollModal photos={photos} />
+                <CameraRollModal photos={photos} closeModal={() => setModalVisible(false)} />
             </Modal>
             <View style={styles.container}>
                 <View style={styles.column}>
