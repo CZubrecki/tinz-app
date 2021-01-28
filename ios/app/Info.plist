@@ -37,6 +37,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ability to scan beers</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Ability to scan beers</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Ability to scan beers</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -13,10 +13,11 @@ const PendingView = () => (
 
 interface CameraProps {
   takePhoto: (image: TakePictureResponse) => void;
+  navigation: any;
 }
   
 
-export default function Camera({ takePhoto }: CameraProps){
+export default function Camera({ takePhoto, navigation }: CameraProps){
 
     const takePicture = async (camera: RNCamera) => {
         const options = { quality: 0.5, base64: true };
@@ -43,7 +44,7 @@ export default function Camera({ takePhoto }: CameraProps){
                 return (
                   <>
                     <CameraOutlineOverlay />
-                    <BottomBar camera={camera} takePicture={takePicture} />
+                    <BottomBar camera={camera} takePicture={takePicture} navigation={navigation} />
                   </>
                 );
             }}

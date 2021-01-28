@@ -7,7 +7,7 @@ import BottomBar from '../components/Camera/BottomBar';
 
 const { height, width } = Dimensions.get('window');
 
-export default function CameraScreen() {
+export default function CameraScreen({navigation}: any) {
     const [image, setImage] = useState<TakePictureResponse | null>();
     const takePhoto = (image: TakePictureResponse) => {
         setImage(image);
@@ -19,13 +19,13 @@ export default function CameraScreen() {
                 <View style={styles.container}>
                     <Image source={{uri: image.uri}} style={{width: (width * .90), height: (height * .50)}}/>
                 </View>
-                <BottomBar cancel={() => setImage(null)} usePhoto={() => console.log('useMe')} />
+                <BottomBar cancel={() => setImage(null)} usePhoto={() => console.log('useMe')} navigation={navigation} />
             </>
         );
     }
 
     return(
-        <Camera takePhoto={takePhoto} />
+        <Camera takePhoto={takePhoto} navigation={navigation} />
     );
 }
 

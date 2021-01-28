@@ -8,6 +8,8 @@ import { signIn, signUp } from './constants/AuthAPI';
 import { AuthContext } from './context/AuthContext';
 import CameraScreen from './views/CameraScreen';
 import LoginScreen from './views/LoginScreen';
+import ProfileScreen from './views/ProfileScreen';
+import SearchScreen from './views/SearchScreen';
 import WelcomeScreen from './views/WelcomeScreen';
 
 const Stack = createStackNavigator();
@@ -18,10 +20,10 @@ function App() {
     return(
         <AppTab.Navigator>
             {/* <AppTab.Screen name="Home" component={HomeScreen} /> */}
-            {/* <AppTab.Screen name="Search" component={SearchScreen} /> */}
+            <AppTab.Screen name="Search" component={SearchScreen} />
             <AppTab.Screen name="Camera" component={CameraScreen} options={{tabBarVisible: false }} />
             {/* <AppTab.Screen name="Home" component={Home} /> */}
-            {/* <AppTab.Screen name="Profile" component={ProfileScreen} /> */}
+            <AppTab.Screen name="Profile" component={ProfileScreen} />
         </AppTab.Navigator>
     );
 }

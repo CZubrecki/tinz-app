@@ -20,7 +20,6 @@ export default function ForgotPasswordModal({closeModal}: ForgotPasswordModalPro
     const [verificationCode, setVerificationCode] = useState<string>();
 
     const forgotPasswordRequest = (emailParam?: string, verificationCodeParam?: string, newPasswordParam?: string) => {
-        console.log(emailParam, verificationCodeParam, newPasswordParam)
         if(_.isNil(emailParam) && _.isNil(verificationCodeParam) && _.isNil(newPasswordParam)) {
             return;
         } else if (!_.isNil(emailParam) && _.isNil(verificationCodeParam) && _.isNil(newPasswordParam) ) {
