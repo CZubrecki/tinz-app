@@ -1,31 +1,30 @@
 import * as _ from 'lodash';
 import React, { useState } from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
-import { TakePictureResponse } from 'react-native-camera';
 import Camera from '../components/Camera';
 import BottomBar from '../components/Camera/BottomBar';
 
 const { height, width } = Dimensions.get('window');
 
 export default function CameraScreen({navigation}: any) {
-    const [image, setImage] = useState<TakePictureResponse | null>();
-    const takePhoto = (image: TakePictureResponse) => {
-        setImage(image);
+    const [imageUri, setImageUri] = useState<string | null>();
+    const setPhoto = (uri: string | null) => {
+        setImageUri(uri);
     }
 
-    if(!_.isNil(image)) {
+    if(!_.isNil(imageUri)) {
         return (
             <>
                 <View style={styles.container}>
-                    <Image source={{uri: image.uri}} style={{width: (width * .90), height: (height * .50)}}/>
+                    <Image source={{uri: imageUri}} style={{width: (width * .90), height: (height * .50)}}/>
                 </View>
-                <BottomBar cancel={() => setImage(null)} usePhoto={() => console.log('useMe')} navigation={navigation} />
+                <BottomBar cancel={() => setPhoto(null)} setPhoto={setPhoto} usePhoto={() => console.log('useMe')} navigation={navigation} />
             </>
         );
     }
 
     return(
-        <Camera takePhoto={takePhoto} navigation={navigation} />
+        <Camera setPhoto={setPhoto} navigation={navigation} />
     );
 }
 

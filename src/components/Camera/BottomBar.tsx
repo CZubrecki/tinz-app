@@ -12,12 +12,13 @@ const {width} =Dimensions.get('window');
 interface BottomBarProps {
     camera?: RNCamera;
     takePicture?: (camera: RNCamera) => void;
+    setPhoto?: (uri: string) => void;
     cancel?: () => void;
     usePhoto?: () => void;
     navigation: any;
 }
 
-export default function BottomBar({navigation, takePicture, camera, cancel, usePhoto}: BottomBarProps) {
+export default function BottomBar({navigation, takePicture, setPhoto, camera, cancel, usePhoto}: BottomBarProps) {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
 
@@ -39,7 +40,7 @@ export default function BottomBar({navigation, takePicture, camera, cancel, useP
             <Modal animationType="slide" collapsable={true} presentationStyle='formSheet' visible={modalVisible} onRequestClose={() => {
                 Alert.alert("Modal has been closed.");
             }}>
-                <CameraRollModal photos={photos} closeModal={() => setModalVisible(false)} />
+                <CameraRollModal photos={photos} closeModal={() => setModalVisible(false)} setPhoto={setPhoto} />
             </Modal>
             <View style={styles.container}>
                 <View style={styles.column}>

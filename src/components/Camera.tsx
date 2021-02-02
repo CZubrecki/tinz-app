@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import { RNCamera, TakePictureResponse } from 'react-native-camera';
+import { RNCamera } from 'react-native-camera';
 import { Theme } from '../theme';
 import BottomBar from './Camera/BottomBar';
 import CameraOutlineOverlay from './Camera/CameraOutlineOverlay';
@@ -12,17 +12,18 @@ const PendingView = () => (
   );
 
 interface CameraProps {
-  takePhoto: (image: TakePictureResponse) => void;
+  setPhoto: (uri: string) => void;
   navigation: any;
+  
 }
   
 
-export default function Camera({ takePhoto, navigation }: CameraProps){
+export default function Camera({ setPhoto, navigation }: CameraProps){
 
     const takePicture = async (camera: RNCamera) => {
         const options = { quality: 0.5, base64: true };
         const image = await camera.takePictureAsync(options);
-        takePhoto(image);
+        setPhoto(image.uri);
         // await processImage(image);
       };
 
@@ -44,7 +45,7 @@ export default function Camera({ takePhoto, navigation }: CameraProps){
                 return (
                   <>
                     <CameraOutlineOverlay />
-                    <BottomBar camera={camera} takePicture={takePicture} navigation={navigation} />
+                    <BottomBar camera={camera} takePicture={takePicture}  navigation={navigation} setPhoto={setPhoto} />
                   </>
                 );
             }}
